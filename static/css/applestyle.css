@@ -1,0 +1,119 @@
+*{
+     margin:0;
+     padding:0;
+}
+      @media (max-width: 640px) { .btn {font-size:10px;padding:0px;} .tuber {font-size:17px;} }
+      @media (min-width:960px) { .btn {font-size:15px;padding:20px;} .tuber {font-size:21px;} }
+      @media (min-width:1100px) { .btn {font-size:20px;padding:30px;} .tuber {font-size:30px;} }
+
+
+  .divider:after, .divider:before {
+                content: "";
+                flex: 1;
+                height: 1px;
+}
+
+.h-custom {
+        height: calc(100% - 73px);
+        }
+
+@media (max-width: 450px) { .h-custom { height: 100%; } }
+
+ body{
+        background-image: url('/static/background/back1.jpg');
+        width:98vw;
+        min-height:100%;
+ }
+
+.tuber{
+         width:100%;
+          color:white;
+          text-align:center;
+          font-weight:600;
+         position:fixed;
+         font-style:red serif;
+         letter-spacing: 3px;
+         word-spacing:6px;
+         text-shadow: 2px 2px 5px green;
+         left:0px;
+         border:5px solid black;
+         font-family:san-sarif;
+         background-color:black;
+         z-index:50;
+  }
+.head{
+        margin-top:0px;
+        height:13%;
+        padding:15px 0px;
+}
+
+.menu{
+        height:40px;
+        color:white;
+        padding-top:5px;
+        top:11%;
+}
+
+.btn{
+         font-weight:600;
+         text-shadow: 2px 2px 2px blue;
+         color:white;
+         padding:0px 2%;
+         margin-top:-30px;
+    }
+
+.content{
+         width:100%;
+         height:100%;
+        letter-spacing: 2px;
+        margin-top:5%;
+}
+
+  div a{
+         color:white;
+        text-decoration:none;
+}
+
+.btn:hover{
+         color:yellow;
+}
+
+.predict{
+        font-size:25px;
+        border-radius:15px;
+}
+.predict:hover{
+         background-color:gold;
+         color:red;
+}
+
+.result{
+     width:70%;
+     background-color:green;
+     color:white;
+     text-align:center;
+     box-shadow:2px 2px black;
+     padding:5px;
+}
+
+
+#logout{
+      background-color:red;
+}
+
+
+label{
+      color:red;
+      }
+
+span{
+      font-size:40px;
+      }
+
+#home{
+      display:block;
+     }
+
+#password{
+        width:60%;
+        }

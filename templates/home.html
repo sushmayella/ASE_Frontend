@@ -1,0 +1,171 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>|Home</title>
+  <meta charset="utf-8">
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<!--  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+   <link href="/static/css/applestyle.css" rel="stylesheet">
+
+    <style>
+
+        .prediction_info{
+        padding:5px;
+        color:white;
+        margin-left:30px;
+        }
+      .prediction_info p, ul{
+      text-align:left;
+      padding:10px;
+      font-size:17px;
+      word-spacing:2px;
+      letter-spacing:2px;
+      line-height:2;
+      }
+.color{
+      background-color:green;
+}
+
+
+    </style>
+</head>
+<body>
+       <div class="container-fluid">
+               <h1 class="tuber head bg-dark">APPLE LEAF DISEASE CLASSIFICATION USING DEEP LEARNING</h1>
+       </div>
+
+     <div class=" tuber menu ">
+    <a  href="/home"><button type="button"  id="b1"  class="btn color"  >Home</button></a>
+    <a  href="/password"> <button type="button"  id="b5" class="btn bg-secondary color">Change Password</button></a>
+      <a  href="/logout"> <button type="button"  id="logout" class="btn">Logout</button></a>
+</div>
+
+
+ <br><br> <br>
+           <center>
+    <div class="content">
+
+                                      <!--     HOME      -->
+
+        <div id="home" >
+       <form class="form-horizontal" action="/submit" method="post" enctype="multipart/form-data">
+            <div class="row">
+               <div class="col">
+                      <div class="form-group" >
+                       <label class="control-label col-sm-6" for="audio">Upload wave file :</label><br>
+                      <div class="col-lg-4">
+                      <input type="file"   class="form-control" required placeholder="upload Image.. "  name="image" id="audio"/>
+                      </div>
+                      </div>
+               </div>
+            </div>
+            <div class="row">
+                <div class="col">
+        <div class="form-group">
+             <div class="col-sm-offset-3 col-sm-8">
+            <button style="width:100px;height:40px;" type="submit" class="btn-success predict">Predict</button>
+            </div>
+            </div>
+                </div>
+            </div>
+         </form>
+
+           {% if prediction %}
+            <div class="row prediction_info">
+               {% if prediction == 'Black_rot' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success" style="height:300px; overflow:scroll;">
+                     <h4>CAUSES FOR BLACK ROT:</h4>
+                    <p>Black rot is a fungal disease  that causes black lesions on leaves, fruit, and branches on apple.
+                        Here are some common reasons why apple trees get stressed and contract black rot:</p>
+                    <ul>
+                        <li>Winter injury</li>
+                         <li>Drought</li>
+                         <li>Excess fertilizer</li>
+                         <li>Excess fertilizer</li>
+                         <li>Infections from other diseases, such as fire blight</li>
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if prediction == 'Apple_scab' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success">
+                     <h4>CAUSES FOR APPLE SCAB:</h4>
+                    <p>Apple Scab is the most common disease apples trees contract. Heavily infected leaves turn yellow and then brown and black as the spots grow.
+                        Scab is most common in the warm, rainy season as water and wind allow the spores to spread</p>
+                </div>
+                {% endif %}
+
+                {% if prediction == 'Cedar_apple_rust' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success">
+                     <h4>CAUSES FOR CEDAR APPLE RUST:</h4>
+                    <p>Cedar-apple rust galls are usually golf ball to baseball sized. The disease cycle of cedar-apple rust is one of the most complex of any plant diseases,
+                        and the fungus ( Gymnosporangium juniperi-virginianae) that causes cedar-apple rust spends almost two years of its life cycle on the cedar trees.</p>
+                </div>
+                {% endif %}
+
+
+                <div class="col-sm-12 col-md-6 col-lg-3">
+                    <img  src="{{img_path}}" width="85%" style="height:200px;"><br>
+                    <h6  style=""> Prediction   :</h6>
+                    <span class="result">{{ prediction }}</span>
+
+                </div>
+
+            {% if prediction == 'Apple_scab' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success ms-5">
+                     <h4>REMEDIES FOR APPLE SCAB:</h4>
+                    <ul>
+                        <li>Clean up infected leaves in the fall</li>
+                        <li>Avoid densely planting apple trees</li>
+                        <li> Avoid fungicides on resistant or immune varieties or those already infected</li>
+
+                    </ul>
+                </div>
+                {% endif %}
+
+              {% if prediction == 'Black_rot' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success ms-3">
+                     <h4>REMEDIES FOR BLOCK ROT:</h4>
+                       <p>The best ways to prevent and treat black rot are by pruning the diseased branches and
+                           fruit, and best practices such as proper watering and fertilizer.
+                        Fungicides and other sprays are not recommended for this disease.</p>
+                </div>
+                {% endif %}
+
+               {% if prediction == 'Cedar_apple_rust' %}
+                <div class="col-sm-12 col-md-6 col-lg-4 bg-success ms-5">
+                     <h4>REMEDIES FOR CEDAR APPLE RUST:</h4>
+                    <p>
+                    <ul>
+                        <li>Choose resistant cultivars when available.</li>
+                        <li>Rake up and dispose of fallen leaves and other debris from under trees.</li>
+                        <li>Remove galls from infected junipers</li>
+
+                    </ul></p>
+                </div>
+                {% endif %}
+
+            </div>
+            {% endif %}
+
+           </div>
+
+                 </div>  <!--  /Content-->
+           </center>
+
+
+<!--  <script src="/static/js/script.js"></script>-->
+</body>
+</html>
+
+
+
+
+
+
+
+
